@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:XamarinPoc.Models;assembly=XamarinPoc"
+             xmlns:converters="clr-namespace:XamarinPoc.Converters;assembly=XamarinPoc"
+             x:Class="XamarinPoc.Views.MainPage"
+             x:Name="MainContentPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:QuantityConverter x:Key="QuantityConverter"/>
+
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="{StaticResource MyBlue}" 
+               Padding="22">
+            <Label Text="Welcome to our virtual pizza shop!" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="White" 
+                   FontSize="22"/>
+        </Frame>
+
+        <CollectionView x:Name="Pizzas"
+                        SelectionMode="Single"
+                        SelectionChanged="Pizzas_OnSelectionChanged"
+                        Margin="12,4">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:PizzaOrder">
+                    <Grid Margin="2,6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" 
+                               Source="{Binding ImageUri}"
+                               WidthRequest="120"
+                               Aspect="AspectFit"
+                               Margin="8"/>
+                        
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               Text="{Binding Name}"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               FontAttributes="Bold"
+                               Margin="8,0"/>
+                        
+                        <Label Grid.Row="2" Grid.Column="1"
+                               Text="{Binding Quantity, Converter={StaticResource QuantityConverter}}"
+                               TextColor="Chocolate"
+                               FontAttributes="Bold"
+                               VerticalOptions="Start"
+                               Margin="16,3, 0, 3"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand">
+            <Button Clicked="Order_OnClicked"
+                    Text="Order"/>
+
+            <Button Clicked="Visit_OnClicked"
+                    Text="Visit"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

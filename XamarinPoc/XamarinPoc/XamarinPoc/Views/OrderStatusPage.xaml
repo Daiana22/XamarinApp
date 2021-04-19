@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinPoc.Views.OrderStatusPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Frame">
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Frame BackgroundColor="DarkGreen" 
+               HasShadow="True"
+               Padding="10"
+               Margin="10">
+            <Frame BorderColor="DarkGreen" 
+                   Padding="0"
+                   Margin="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label x:Name="OrderId"
+                           Grid.Row="1"
+                           FontSize="14"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="10,20"/>
+
+                    <Label x:Name="OrderStatus"
+                           Grid.Row="2"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           LineBreakMode="WordWrap"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="10,20"/>
+
+                    <Button Grid.Row="3"
+                            Text="Refresh"
+                            HorizontalOptions="Center"/>
+                </Grid>
+            </Frame>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

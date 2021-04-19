@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinPoc.Views.PizzaDetailsPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="PizzaImage"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="200"
+                   Aspect="AspectFit"/>
+            
+            <Label x:Name="PizzaName"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="10,8"/>
+            
+            <Label x:Name="PizzaDescription"
+                   LineBreakMode="WordWrap"
+                   Margin="10"/>
+
+            <Label x:Name="PizzaPrice"
+                   HorizontalOptions="EndAndExpand"
+                   Margin="10"/>
+            
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="8">
+                <Label Text="Quantity"
+                       VerticalOptions="Center"
+                       Margin="10,0"/>
+                <Entry x:Name="Quantity"
+                       WidthRequest="80"
+                       IsReadOnly="True"/>
+                <Stepper x:Name="QuantityModifier"
+                         ValueChanged="QuantityModifier_OnValueChanged"
+                         Minimum="0"
+                         Maximum="100"/>
+            </StackLayout>
+
+            <Button x:Name="AddToCommand"
+                    Text="Add"
+                    Clicked="AddToCommand_OnClicked"
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

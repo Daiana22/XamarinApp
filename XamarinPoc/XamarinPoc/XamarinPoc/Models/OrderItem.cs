@@ -7,6 +7,9 @@ namespace XamarinPoc.Models
         [JsonProperty("productId")]
         public int Id { get; set; }
 
+        [JsonProperty("productName")]
+        public string Name { get; set; }
+
         [JsonProperty("quantity")]
         public int Quantity { get; set; }
 

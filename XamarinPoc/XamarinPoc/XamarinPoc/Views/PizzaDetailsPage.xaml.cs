@@ -35,9 +35,10 @@ namespace XamarinPoc.Views
             MainPage.CurrentOrder.SetItem(new OrderItem
             {
                 Id = _pizza.Id,
+                Name = _pizza.Name,
                 Quantity = (int)QuantityModifier.Value,
                 UnitPrice = _pizza.Price
-            });
+            }) ;
 
             await Application.Current.MainPage.Navigation.PopAsync();
         }

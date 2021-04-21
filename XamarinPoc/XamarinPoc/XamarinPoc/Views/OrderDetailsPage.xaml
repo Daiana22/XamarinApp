@@ -12,6 +12,39 @@
                    FontSize="22"/>
             </Frame>
 
+            <ScrollView
+                Margin="3">
+                <Grid x:Name="OrdersGrid"  Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="End">
+                <BoxView
+                    Color="Black"
+                    HeightRequest="2"
+                    WidthRequest="520"/>
+
+            </StackLayout>
+            <Label
+                    x:Name="TotalPrice"
+                   Text ="TOTAL: "
+                   TextTransform="Uppercase"
+                   FontSize="22"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   Margin="10,0"
+                HorizontalTextAlignment="End">
+            </Label>
             <StackLayout Orientation="Horizontal"
                      HorizontalOptions="CenterAndExpand">
                 <Button Clicked="Submit_OnClicked"

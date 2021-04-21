@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Essentials;
@@ -50,9 +51,7 @@ namespace XamarinPoc.Views
 
         private async void Order_OnClicked(object sender, EventArgs e)
         {
-           // var orderStatus = await Delivery.OrderAsync(CurrentOrder);
-
-            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetailsPage(), true);
+            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetailsPage(CurrentOrder), true);
         }
 
         private async void  Visit_OnClicked(object sender, EventArgs e)
